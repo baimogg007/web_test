@@ -1,18 +1,17 @@
 name: 测试部署
 run-name: ${{ github.actor }} 开始部署 ${{ github.ref }} 🚀
 on:
-  workflow_dispatch:
-    inputs:
-      branchname:
-        description: '请输入要部署的分支名称:'
-        required: true
-        default: 'release'
+  push:
+    tags:
+      - /^t\d+(\.\d+){1,2}(-\w+(\.\d+)?)?$/
+
+
 jobs:
   deployment:
-    strategy:
-      matrix:
-        servers: [prod-1]
-    runs-on: ${{matrix.servers}}
+    # strategy:
+    #   matrix:
+    #     servers: [prod-1]
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         run: |
@@ -32,17 +31,17 @@ jobs:
           rm -rf src
           mv ${{github.event.repository.name}} src
           sudo systemctl start --all 'xx-service-*'
-      - name: Send mail
-        uses: dawidd6/action-send-mail@v3
-        with:
-          server_address: smtp.example.com
-          server_port: 587
-          username: ${{secrets.MAIL_USERNAME}}
-          password: ${{secrets.MAIL_PASSWORD}}
-          subject: XX-service 线上部署通知
-          to: david@example.com
-          body: 已经成功将 ${{github.repository}} 仓库的 ${{github.event.inputs.branchname}} 分支部署到线上，位于 ${{matrix.servers}} 服务器。
-          convert_markdown: true
-      - name: Cleanup
-        run: |
-          rm -rf ${{github.event.repository.name}}
+      # - name: Send mail
+      #   uses: dawidd6/action-send-mail@v3
+      #   with:
+      #     server_address: smtp.example.com
+      #     server_port: 587
+      #     username: ${{secrets.MAIL_USERNAME}}
+      #     password: ${{secrets.MAIL_PASSWORD}}
+      #     subject: XX-service 线上部署通知
+      #     to: david@example.com
+      #     body: 已经成功将 ${{github.repository}} 仓库的 ${{github.event.inputs.branchname}} 分支部署到线上，位于 ${{matrix.servers}} 服务器。
+      #     convert_markdown: true
+      # - name: Cleanup
+      #   run: |
+      #     rm -rf ${{github.event.repository.name}}
