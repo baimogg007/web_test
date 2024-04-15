@@ -1,0 +1,39 @@
+@import '~@/shared/styles/themes/variables';
+
+.form-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.form-base-operate-button-group {
+  .ant-btn {
+    padding: 9px 30px;
+
+    &:last-child {
+      margin-left: 20px;
+    }
+  }
+}
+
+.hidden-form-delete-button {
+  justify-content: center;
+}
+
+.hidden-form-cancel-button {
+  justify-content: flex-end;
+}
+
+.form-delete-button {
+  display: flex;
+  align-items: center;
+  color: #dc4946;
+  font-weight: 500;
+  line-height: 20px;
+  cursor: pointer;
+
+  > svg {
+    margin-right: 2px;
+  }
+}

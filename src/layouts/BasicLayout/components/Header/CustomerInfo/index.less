@@ -1,0 +1,40 @@
+@import '~@/shared/styles/themes/variables.less';
+
+.dropdownWrap {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.customerWrapper {
+  :global {
+    .ant-btn-primary {
+      box-shadow: none;
+    }
+
+    .ant-dropdown-menu {
+      padding: 10px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-dropdown-menu-item:hover,
+    .ant-dropdown-menu-submenu-title:hover {
+      &:hover {
+        background-color: white;
+      }
+    }
+
+    .ant-dropdown-menu-item-disabled,
+    .ant-dropdown-menu-submenu-title-disabled {
+      color: @text-color;
+      background-color: white;
+      cursor: auto;
+    }
+
+    .ant-dropdown-menu-item {
+      padding: 0;
+    }
+  }
+}
