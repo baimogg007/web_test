@@ -1,7 +1,7 @@
 name: 测试部署
 run-name: ${{ github.actor }} 开始部署 ${{ github.ref }} 🚀
 on:
-  push:
+  create:
     tags:
       - /^t\d+(\.\d+){1,2}(-\w+(\.\d+)?)?$/
 
