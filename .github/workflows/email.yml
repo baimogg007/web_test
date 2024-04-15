@@ -1,4 +1,5 @@
-name: 线上部署代码
+name: 测试部署
+run-name: ${{ github.actor }} 开始部署 ${{ github.ref }} 🚀
 on:
   workflow_dispatch:
     inputs:
