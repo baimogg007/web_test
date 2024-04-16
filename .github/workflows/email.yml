@@ -1,9 +1,15 @@
 name: 测试部署
 run-name: ${{ github.actor }} 开始部署 ${{ github.ref }} 🚀
 on:
-  create:
-    tags:
-      - /^t\d+(\.\d+){1,2}(-\w+(\.\d+)?)?$/
+  workflow_dispatch:
+    inputs:
+      branchname:
+        description: '请输入要部署的分支名称:'
+        required: true
+        default: 'release'
+  # create:
+  #   tags:
+  #     - /^t\d+(\.\d+){1,2}(-\w+(\.\d+)?)?$/
 
 
 jobs:
