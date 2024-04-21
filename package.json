@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "dev": "umi dev",
-    "build": "umi build",
+    "build": "umi build --openssl-legacy-provider",
     "umiPostinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
