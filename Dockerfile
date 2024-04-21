@@ -7,11 +7,8 @@ ENV NODE_ENV production
 # Setting up the work directory
 WORKDIR /home
 
-RUN export NODE_OPTIONS=--openssl-legacy-provider
-RUN pwd
 # Installing dependencies
 COPY ./package.json ./yarn.lock ./
-RUN ls -l
 RUN yarn
 
 # Copying all the files in our project
@@ -26,7 +23,7 @@ RUN yarn build
 FROM nginx
 
 # Copying built assets from builder
-COPY — from=builder /app/build /usr/share/nginx/html/
+COPY — from=builder /home/build /usr/share/nginx/html/
 
 # Copying our nginx.conf
 COPY ./nginx/nginx.conf /etc/nginx/conf.d/default.conf
