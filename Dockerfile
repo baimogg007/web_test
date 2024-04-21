@@ -9,9 +9,9 @@ WORKDIR /home
 
 # Installing dependencies
 COPY ./package.json ./yarn.lock ./
-RUN yarn
+RUN yarn add @umijs/preset-react
 
-RUN yarn umiPostinstall
+RUN yarn
 
 # Copying all the files in our project
 COPY . .
