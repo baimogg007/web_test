@@ -8,9 +8,10 @@ ENV NODE_ENV production
 WORKDIR /home
 
 RUN export NODE_OPTIONS=--openssl-legacy-provider
-
+RUN pwd
 # Installing dependencies
 COPY ./package.json ./yarn.lock ./
+RUN ls -l
 RUN yarn
 
 # Copying all the files in our project
