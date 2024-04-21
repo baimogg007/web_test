@@ -17,7 +17,7 @@ COPY . .
 RUN ls -l
 
 # Building our application
-CMD [ "yarn build" ]
+RUN yarn build
 
 # Fetching the latest nginx image
 FROM nginx

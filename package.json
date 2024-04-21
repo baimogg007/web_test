@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "umi dev",
     "build": "umi build",
-    "umiPostinstall": "umi generate tmp",
+    "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
     "buildAPI": "node --max_old_space_size=4096 buildITools/API.js",
@@ -40,7 +40,7 @@
     "@types/qs": "^6.9.10",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@umijs/preset-react": "1.x",
+    "@umijs / preset-react": "1.x",
     "@umijs/test": "^3.5.41",
     "babel-plugin-import": "^1.13.8",
     "del": "^6.0.0",
