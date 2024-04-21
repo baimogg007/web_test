@@ -5,8 +5,7 @@ FROM node:18.12.1 AS builder
 ENV NODE_ENV production
 
 # Setting up the work directory
-RUN mkdir -p /app
-WORKDIR /app
+WORKDIR /home
 
 RUN export NODE_OPTIONS=--openssl-legacy-provider
 
