@@ -14,7 +14,7 @@ RUN yarn
 # Copying all the files in our project
 COPY . .
 
-RUN pwd
+RUN ls -l
 
 # Building our application
 RUN yarn build
