@@ -11,6 +11,8 @@ WORKDIR /home
 COPY ./package.json ./yarn.lock ./
 RUN yarn
 
+RUN yarn umiPostinstall
+
 # Copying all the files in our project
 COPY . .
 
