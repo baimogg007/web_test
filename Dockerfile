@@ -9,7 +9,7 @@ WORKDIR /home
 
 # Installing dependencies
 COPY ./package.json ./yarn.lock ./
-RUN yarn add @umijs/preset-react
+RUN yarn add @umijs/preset-react babel-plugin-import
 
 RUN yarn
 
